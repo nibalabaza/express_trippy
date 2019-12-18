@@ -15,6 +15,7 @@ app.use (bodyparser.json());
 
 mongoose.connect('mongodb://localhost:27017/express-trippy', {
   useNewUrlParser: true,
+  useCreateIndex : true,
   useUnifiedTopology: true
 },function(err){
     if(err!== null){
@@ -29,19 +30,8 @@ mongoose.connect('mongodb://localhost:27017/express-trippy', {
 
 
 app.get('/',function(req,res){
-    usersModel.find({},function (err, documents){
-        if (err !== null){
-            console.log('Cannot get users err', err);
-        }else{
-            console.log('documents', documents);
-            var obj = {
-                hotels : documents
-            };
-            console.log('obj', obj);
-            res.render('home', obj);
-        }
-    });
-
+    res.render('home')
+    
 });
 
 
@@ -51,22 +41,51 @@ app.post('/addhotels', function(req, res){
     
     var hotels={
         hotelname: req.body.hotelname,
-        
+        address: req.body.address,
+        city: req.body.city,
+        country: req.body.country,
+        stars: req.body.stars,
+        spa: req.body.spa,
+        pool: req.body.pool,
+        price: req.body.price,
 
     };
-
+     console.log(hotels);
     hotelsModel.create(hotels, function (err, document) {
         if (err !== null) {
             console.log('Err saved user', err);
             return;
         }
-        res.render('addhotels');
+        res.json({
+
+        success: true,
+        data:document
+
+        });
+
     });
     
 });
 
 
+app.get('/hotels',function(req,res){
+    hotelsModel.find({},function (err, hotels){
+     
+            res.json({
+        success: true,
+        data: hotels
+      });
+    });
+});
 
+app.get("/hotels/:id", function(req, res) {
+    hotelsModel.findOne({ _id: req.params.id }, function(err, hotel) {
+      res.json({
+        success: true,
+        data: hotel
+      });
+    });
+  });
 
 app.listen(port, function(){
     console.log('server starder on port:',port);
