@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var restaurants = new mongoose.Schema({
 
-    restaurantname: {type: String,
+    name: {type: String,
                 index: true},
 
     address: {type: String,
