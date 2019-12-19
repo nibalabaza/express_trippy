@@ -1,5 +1,101 @@
+<form method="POST" action="/addhotels">
+<label>nom de l'hotel </label>
+<input name="hotelname" type="text" placeholder='Hotel Name'> <br>  
 
-<h1>hotel add </h1>
+<label>adress de l'hotel </label>
+<input name="address" type="text" placeholder='adress'> <br>
+
+<label>country</label>
+<select name="country"> 
+    <option value="france" >France</option>
+    <option value="belgique">Belgique</option>
+    <option value="suisse">Suisse</option>
+</select> <br> 
+
+<label>city</label>
+<select name="city"> 
+    <option value="paris">Paris</option>
+    <option value="marseille">Marseille</option>
+    <option value="lyon">Lyon</option>
+</select> <br>  
+
+ 
+
+<label>star hotel</label>
+ <select name="stars" type="number"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select> <br>  
+
+<label>Spa</label>
+<input name="spa" type="checkbox" value='true'>oui
+<input name="spa" type="checkbox" value='false'> no<br>  
+
+<label>Pool</label>
+<input name="pool" type="checkbox" value='true'>oui
+<input name="pool" type="checkbox" value='false'> no<br>  
+
+<label>price categorie</label>
+<select name="price" type="number"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  
+</select> 
+
+<button type="submit">add</button>
+</form>
+<a href="/hotels">hotels</a><br><br>
 
 
-<a href="/">back home</a>
+{{!-- Restaurants --}}
+
+<form method="POST" action="/addrestaurants">
+<label>nom de la restaurant </label>
+<input name="restaurantname" type="text" placeholder='Restaurant Name'> <br>  
+
+<label>adress de l'restaurant </label>
+<input name="address" type="text" placeholder='adress'> <br>
+
+<label>country</label>
+<select name="country"> 
+    <option value="france" >France</option>
+    <option value="belgique">Belgique</option>
+    <option value="suisse">Suisse</option>
+</select> <br> 
+
+<label>city</label>
+<select name="city"> 
+    <option value="paris">Paris</option>
+    <option value="marseille">Marseille</option>
+    <option value="lyon">Lyon</option>
+</select> <br>  
+
+ 
+
+<label>Restaurant Stars</label>
+ <select name="stars" type="number"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select> <br>  
+
+<label>Food Type</label>
+<input name="foodtype" type="text" placehplder= "Food Type" ><br>
+
+ 
+
+<label>Price category</label>
+<select name="price" type="number"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  
+</select> <br>
+
+<button type="submit">add</button>
+</form>
+<a href="/restaurants">restaurants</a>
